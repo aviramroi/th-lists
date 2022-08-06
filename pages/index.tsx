@@ -79,7 +79,7 @@ export async function getServerSideProps(
   const data = await getBusinessQuery({
     term: query.t ?? defaultSearch.term,
     location: query.p ?? defaultSearch.location,
-    limit: +query.l ?? defaultSearch.limit,
+    limit: query.l ? +query.l : defaultSearch.limit,
   });
 
   return {
